@@ -1,11 +1,11 @@
 exports.up = function (knex) {
   return knex.schema.createTable("cooking_steps", function (t) {
     t.increments();
-    t.integer("recipeIngredientId")
+    t.integer("recipeId")
       .notNullable()
       .unsigned()
       .references("id")
-      .inTable("recipe_ingredients")
+      .inTable("recipes")
       .onDelete("CASCADE")
       .onUpdate("CASCADE");
     t.integer("step_number").notNullable();
